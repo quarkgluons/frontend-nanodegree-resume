@@ -1,6 +1,6 @@
 var bio = {
     name: 'Showkat Ali',
-    role: 'Wannabe All Rounder',
+    role: 'Udacious!&lt;sic&gt;',
     contacts: {
 	mobile: '+91xxxxxxxxxx',
 	email: 'quarkgluons@gmail.com',
@@ -10,24 +10,21 @@ var bio = {
     },
     welcomeMessage: 'You are most welcome to go through my resume',
     skills: ['Programmer', 'Footballer', 'What not!'],
-    biopic: '',
+    biopic: 'images/my.jpg',
     display: function () {
 	$('#header').prepend(HTMLheaderName.replace('%data%', bio.name) + HTMLheaderRole.replace('%data%', bio.role));
-	$('#header').append(HTMLbioPic.replace('%data', bio.biopic));
+	$('#header').append(HTMLbioPic.replace('%data%', bio.biopic));
 	$('#header').append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
-	$('#header').append(HTMLskillsStart);
-	for (var i in bio.skills) 
-	    $('#header').append(HTMLskills.replace('%data%', bio.skills[i]));
-
+	//using polymer my-contacts in place of HTMLcontacts
 	for (var e in bio.contacts) {
-	    $('#topContacts').append(HTMLcontactGeneric.replace('%contact%', e).replace('%data%', bio.contacts[e]));
-	    $('#footerContacts').append(HTMLcontactGeneric.replace('%contact%', e).replace('%data%', bio.contacts[e]));
+	    $('#topContacts').append(PolymerContact.replace('%contact%', e).replace('%contact%', e).replace('%data%', bio.contacts[e]));
+	    $('#footerContacts').append(PolymerContact.replace('%contact%', e).replace('%contact%', e).replace('%data%', bio.contacts[e]));
 	}
-	
-    }
-    
-};
+	$('#header').append(HTMLskillsStart);
+	$('#skills').append(polymerSkills);
 
+    }
+}
 var education = {
     schools: [{ name: 'SVPS',
 		location: 'Kargil',
@@ -55,26 +52,26 @@ var education = {
 		      date: 2013,
 		      url: 'http://www.codeacademy.org'
 		    },
-		    { title: '',
-		      school: '',
-		      date: 2010,
-		      url: ''
+		    { title: 'Basic HTML and CSS',
+		      school: 'Udacity',
+		      date: 2015,
+		      url: 'https://www.udacity.com'
 		    }],
     display: function () {
-	$('#education').append(HTMLschoolStart);
 	for (var school in education.schools) {
-	    $('#education').append(HTMLschoolName.replace('%data%', education.schools[school].name + HTMLschoolDegree.replace('%data%', education.schools[school].degree)));
-	    $('#education').append(HTMLschoolDates.replace('%data%', education.schools[school].dates));
-	    $('#education').append(HTMLschoolLocation.replace('%data%', education.schools[school].location));
+	    $('#education').append(HTMLschoolStart);
+	    $('.education-entry').eq(school).append(HTMLschoolName.replace('%data%', education.schools[school].name + HTMLschoolDegree.replace('%data%', education.schools[school].degree)));
+	    $('.education-entry').eq(school).append(HTMLschoolDates.replace('%data%', education.schools[school].dates));
+	    $('.education-entry').eq(school).append(HTMLschoolLocation.replace('%data%', education.schools[school].location));
 	    for (var major in education.schools[school].majors) {
-		$('#education').append(HTMLschoolMajor.replace('%data%', education.schools[school].majors[major]));
+		$('.education-entry').eq(school).append(HTMLschoolMajor.replace('%data%', education.schools[school].majors[major]));
 	    }
 	}
-	$('#education').append(HTMLonlineClasses);
+	$('.education-entry:last').append(HTMLonlineClasses);
 	for (var i in education.onlineCourses) {
-	    $('#education').append(HTMLonlineTitle.replace('%data%', education.onlineCourses[i].title + HTMLonlineSchool.replace('%data%', education.onlineCourses[i].school)));
-	    $('#education').append(HTMLonlineDates.replace('%data%', education.onlineCourses[i].date));
-	    $('#education').append(HTMLonlineURL.replace('%data%', education.onlineCourses[i].url));
+	    $('.education-entry:last').append(HTMLonlineTitle.replace('%data%', education.onlineCourses[i].title + HTMLonlineSchool.replace('%data%', education.onlineCourses[i].school)));
+	    $('.education-entry:last').append(HTMLonlineDates.replace('%data%', education.onlineCourses[i].date));
+	    $('.education-entry:last').append(HTMLonlineURL.replace('%data%', education.onlineCourses[i].url));
 	}
     }
 };
@@ -88,12 +85,12 @@ var work = {
 	description: 'Maintain the IT department in HAL Medical & Health Unit and also develop required applications.'
     }],
     display: function () {
-	$('#workExperience').append(HTMLworkStart);
 	for (var i in work.jobs) {
-	    $('#workExperience').append(HTMLworkEmployer.replace('%data%', work.jobs[i].employer) + HTMLworkTitle.replace('%data%', work.jobs[i].title));
-	    $('#workExperience').append(HTMLworkDates.replace('%data%', work.jobs[i].dates));
-	    $('#workExperience').append(HTMLworkLocation.replace('%data%', work.jobs[i].location));
-	    $('#workExperience').append(HTMLworkDescription.replace('%data%', work.jobs[i].description));
+	    $('#workExperience').append(HTMLworkStart);
+	    $('.work-entry').eq(i).append(HTMLworkEmployer.replace('%data%', work.jobs[i].employer) + HTMLworkTitle.replace('%data%', work.jobs[i].title));
+	    $('.work-entry').eq(i).append(HTMLworkDates.replace('%data%', work.jobs[i].dates));
+	    $('.work-entry').eq(i).append(HTMLworkLocation.replace('%data%', work.jobs[i].location));
+	    $('.work-entry').eq(i).append(HTMLworkDescription.replace('%data%', work.jobs[i].description));
 	}
     }
 };
@@ -114,15 +111,15 @@ var projects = { projects :[{ title: 'An LL parser which will take the grammer a
 			      images: []
 			    }],
 		 display: function () {
-		     $('#projects').append(HTMLprojectStart);
 		     //projects.projects is an array of objects
 		     //hence we need to enumerate all the objects at each index
 		     for (var i in projects.projects) {
-			 $('#projects').append(HTMLprojectTitle.replace('%data%', projects.projects[i].title));
-			 $('#projects').append(HTMLprojectDates.replace('%data%', projects.projects[i].dates));
-			 $('#projects').append(HTMLprojectDescription.replace('%data%', projects.projects[i].description));
+			 $('#projects').append(HTMLprojectStart);
+			 $('.project-entry').eq(i).append(HTMLprojectTitle.replace('%data%', projects.projects[i].title));
+			 $('.project-entry').eq(i).append(HTMLprojectDates.replace('%data%', projects.projects[i].dates));
+			 $('.project-entry').eq(i).append(HTMLprojectDescription.replace('%data%', projects.projects[i].description));
 			 for (var image in projects.projects[i].images)
-			     $('#projects').append(HTMLprojectImage.replace('%data%', projects.projects[i].images[image]));
+			     $('.project-entry').eq(i).append(HTMLprojectImage.replace('%data%', projects.projects[i].images[image]));
 		     }
 		
 		 }

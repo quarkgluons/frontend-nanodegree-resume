@@ -1,0 +1,23 @@
+{
+  "name": "frontend-nanodegree-resume",
+  "version": "0.0.1",
+  "homepage": "https://github.com/quarkgluons/frontend-nanodegree-resume",
+  "authors": [
+    "quarkgluons <quarkgluons@gmail.com>"
+  ],
+  "description": "Udacity Frontend Project Resume",
+  "main": "index.html",
+  "keywords": [
+    "resume",
+    "frontend_development",
+    "udacity_coursework"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

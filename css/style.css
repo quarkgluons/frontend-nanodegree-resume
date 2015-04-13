@@ -4,6 +4,18 @@
   font-family: 'Roboto', sans-serif;
 }
 
+paper-tabs {
+  width: 100%;
+  margin: 0 auto; 
+  font-size: 0.7em;
+  color: #000;
+  background-color: rgba(15, 206, 255, 0.66);
+}
+
+.tab-content {
+  margin: 0 auto;  
+}
+
 .clearfix {
   overflow: auto;
 }
