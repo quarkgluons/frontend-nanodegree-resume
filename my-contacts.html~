@@ -1,6 +1,0 @@
-<link rel="import" href="bower_components/polymer/polymer.html">
-<polymer-element name="my-contacts">
-  <template>
-    <p>Hello World</p>
-  </template>
-</polymer-element>
