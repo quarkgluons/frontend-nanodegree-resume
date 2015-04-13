@@ -1,0 +1,140 @@
+var bio = {
+    name: 'Showkat Ali',
+    role: 'Wannabe All Rounder',
+    contacts: {
+	mobile: '+91xxxxxxxxxx',
+	email: 'quarkgluons@gmail.com',
+	github: 'https://ww.github.com/quarkgluons',
+	twitter: '@ali_showkat',
+	location: 'Kargil'
+    },
+    welcomeMessage: 'You are most welcome to go through my resume',
+    skills: ['Programmer', 'Footballer', 'What not!'],
+    biopic: '',
+    display: function () {
+	$('#header').prepend(HTMLheaderName.replace('%data%', bio.name) + HTMLheaderRole.replace('%data%', bio.role));
+	$('#header').append(HTMLbioPic.replace('%data', bio.biopic));
+	$('#header').append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
+	$('#header').append(HTMLskillsStart);
+	for (var i in bio.skills) 
+	    $('#header').append(HTMLskills.replace('%data%', bio.skills[i]));
+
+	for (var e in bio.contacts) {
+	    $('#topContacts').append(HTMLcontactGeneric.replace('%contact%', e).replace('%data%', bio.contacts[e]));
+	    $('#footerContacts').append(HTMLcontactGeneric.replace('%contact%', e).replace('%data%', bio.contacts[e]));
+	}
+	
+    }
+    
+};
+
+var education = {
+    schools: [{ name: 'SVPS',
+		location: 'Kargil',
+		degree: 'Primary Scooling',
+		majors: ['Trolling'],
+		dates: 1999,
+		url: ''
+	      },
+	      { name: 'St. Thomas College',
+		location: 'Dehradun',
+		degree: 'High Scool',
+		majors: ['Cricket', 'Running', 'Free-Style Party Dancing'],
+		dates: 2007,
+		url: '' 
+	      },
+	      { name: 'Jamia Millia Islamia',
+		location: 'New Delhi',
+		degree: 'Graduation',
+		majors: ['Computer Science', 'Football', 'College Fests'],
+		dates: 2012,
+		url: '' 
+	      }],
+    onlineCourses: [{ title: 'JavaScript',
+		      school: 'code academy',
+		      date: 2013,
+		      url: 'http://www.codeacademy.org'
+		    },
+		    { title: '',
+		      school: '',
+		      date: 2010,
+		      url: ''
+		    }],
+    display: function () {
+	$('#education').append(HTMLschoolStart);
+	for (var school in education.schools) {
+	    $('#education').append(HTMLschoolName.replace('%data%', education.schools[school].name + HTMLschoolDegree.replace('%data%', education.schools[school].degree)));
+	    $('#education').append(HTMLschoolDates.replace('%data%', education.schools[school].dates));
+	    $('#education').append(HTMLschoolLocation.replace('%data%', education.schools[school].location));
+	    for (var major in education.schools[school].majors) {
+		$('#education').append(HTMLschoolMajor.replace('%data%', education.schools[school].majors[major]));
+	    }
+	}
+	$('#education').append(HTMLonlineClasses);
+	for (var i in education.onlineCourses) {
+	    $('#education').append(HTMLonlineTitle.replace('%data%', education.onlineCourses[i].title + HTMLonlineSchool.replace('%data%', education.onlineCourses[i].school)));
+	    $('#education').append(HTMLonlineDates.replace('%data%', education.onlineCourses[i].date));
+	    $('#education').append(HTMLonlineURL.replace('%data%', education.onlineCourses[i].url));
+	}
+    }
+};
+
+var work = {
+    jobs:[{
+	employer: 'Hindustan Aeronautics Limited',
+	title: 'Engineer CS',
+	location: 'Bangalore, Karnataka, India',
+	dates: '2013-current',
+	description: 'Maintain the IT department in HAL Medical & Health Unit and also develop required applications.'
+    }],
+    display: function () {
+	$('#workExperience').append(HTMLworkStart);
+	for (var i in work.jobs) {
+	    $('#workExperience').append(HTMLworkEmployer.replace('%data%', work.jobs[i].employer) + HTMLworkTitle.replace('%data%', work.jobs[i].title));
+	    $('#workExperience').append(HTMLworkDates.replace('%data%', work.jobs[i].dates));
+	    $('#workExperience').append(HTMLworkLocation.replace('%data%', work.jobs[i].location));
+	    $('#workExperience').append(HTMLworkDescription.replace('%data%', work.jobs[i].description));
+	}
+    }
+};
+
+var projects = { projects :[{ title: 'An LL parser which will take the grammer and a string and tell whether that string is parsable with the given grammer.',
+			      dates: '2012',
+			      description: 'As part of the Compiler Design Course',
+			      images: []
+			    },
+			    { title: 'Second',
+			      dates: '',
+			      description: '',
+			      images: []
+			    },
+			    { title: 'Third',
+			      dates: '',
+			      description: '',
+			      images: []
+			    }],
+		 display: function () {
+		     $('#projects').append(HTMLprojectStart);
+		     //projects.projects is an array of objects
+		     //hence we need to enumerate all the objects at each index
+		     for (var i in projects.projects) {
+			 $('#projects').append(HTMLprojectTitle.replace('%data%', projects.projects[i].title));
+			 $('#projects').append(HTMLprojectDates.replace('%data%', projects.projects[i].dates));
+			 $('#projects').append(HTMLprojectDescription.replace('%data%', projects.projects[i].description));
+			 for (var image in projects.projects[i].images)
+			     $('#projects').append(HTMLprojectImage.replace('%data%', projects.projects[i].images[image]));
+		     }
+		
+		 }
+	       };
+
+
+function display() {
+    bio.display();
+    work.display();
+    projects.display();
+    education.display();
+    $('#mapDiv').append(googleMap);
+}
+
+display();
