@@ -16,9 +16,9 @@ var bio = {
 	$('#header').append(HTMLbioPic.replace('%data%', bio.biopic));
 	$('#header').append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
 	$('#header').append(HTMLskillsStart);
-	for (var i in bio.skills) 
-	    $('#skills').append(HTMLskills.replace('%data%', bio.skills[i]));
-
+	// for (var i in bio.skills) 
+	//     $('#skills').append(HTMLskills.replace('%data%', bio.skills[i]));
+	$('#skills').append(polymerSkills);
 	for (var e in bio.contacts) {
 	    $('#topContacts').append(PolymerContact.replace('%contact%', e).replace('%contact%', e).replace('%data%', bio.contacts[e]));
 	    $('#footerContacts').append(PolymerContact.replace('%contact%', e).replace('%contact%', e).replace('%data%', bio.contacts[e]));
@@ -137,7 +137,7 @@ function display() {
     work.display();
     projects.display();
     education.display();
-    $('#mapDiv').append(googleMap);
+//    $('#mapDiv').append(googleMap);
 }
 
 display();
