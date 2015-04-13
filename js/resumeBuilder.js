@@ -15,13 +15,14 @@ var bio = {
 	$('#header').prepend(HTMLheaderName.replace('%data%', bio.name) + HTMLheaderRole.replace('%data%', bio.role));
 	$('#header').append(HTMLbioPic.replace('%data%', bio.biopic));
 	$('#header').append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
-	$('#header').append(HTMLskillsStart);
-	$('#skills').append(polymerSkills);
 	//using polymer my-contacts in place of HTMLcontacts
 	for (var e in bio.contacts) {
 	    $('#topContacts').append(PolymerContact.replace('%contact%', e).replace('%contact%', e).replace('%data%', bio.contacts[e]));
 	    $('#footerContacts').append(PolymerContact.replace('%contact%', e).replace('%contact%', e).replace('%data%', bio.contacts[e]));
-	}    
+	}
+	$('#header').append(HTMLskillsStart);
+	$('#skills').append(polymerSkills);
+
     }
 }
 var education = {
