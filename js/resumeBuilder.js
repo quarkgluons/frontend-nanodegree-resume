@@ -61,18 +61,19 @@ var education = {
 		      url: ''
 		    }],
     display: function () {
-	$('#education').append(HTMLschoolStart);
+	
 	for (var school in education.schools) {
-	    $('#education').append(HTMLschoolName.replace('%data%', education.schools[school].name + HTMLschoolDegree.replace('%data%', education.schools[school].degree)));
-	    $('#education').append(HTMLschoolDates.replace('%data%', education.schools[school].dates));
-	    $('#education').append(HTMLschoolLocation.replace('%data%', education.schools[school].location));
+	    $('#education').append(HTMLschoolStart);
+	    $('.education-entry').eq(school).append(HTMLschoolName.replace('%data%', education.schools[school].name + HTMLschoolDegree.replace('%data%', education.schools[school].degree)));
+	    $('.education-entry').eq(school).append(HTMLschoolDates.replace('%data%', education.schools[school].dates));
+	    $('.education-entry').eq(school).append(HTMLschoolLocation.replace('%data%', education.schools[school].location));
 	    for (var major in education.schools[school].majors) {
-		$('#education').append(HTMLschoolMajor.replace('%data%', education.schools[school].majors[major]));
+		$('.education-entry').eq(school).append(HTMLschoolMajor.replace('%data%', education.schools[school].majors[major]));
 	    }
 	}
 	$('#education').append(HTMLonlineClasses);
 	for (var i in education.onlineCourses) {
-	    $('#education').append(HTMLonlineTitle.replace('%data%', education.onlineCourses[i].title + HTMLonlineSchool.replace('%data%', education.onlineCourses[i].school)));
+	    $('#education').eq(i).append(HTMLonlineTitle.replace('%data%', education.onlineCourses[i].title + HTMLonlineSchool.replace('%data%', education.onlineCourses[i].school)));
 	    $('#education').append(HTMLonlineDates.replace('%data%', education.onlineCourses[i].date));
 	    $('#education').append(HTMLonlineURL.replace('%data%', education.onlineCourses[i].url));
 	}
@@ -88,12 +89,12 @@ var work = {
 	description: 'Maintain the IT department in HAL Medical & Health Unit and also develop required applications.'
     }],
     display: function () {
-	$('#workExperience').append(HTMLworkStart);
 	for (var i in work.jobs) {
-	    $('#workExperience').append(HTMLworkEmployer.replace('%data%', work.jobs[i].employer) + HTMLworkTitle.replace('%data%', work.jobs[i].title));
-	    $('#workExperience').append(HTMLworkDates.replace('%data%', work.jobs[i].dates));
-	    $('#workExperience').append(HTMLworkLocation.replace('%data%', work.jobs[i].location));
-	    $('#workExperience').append(HTMLworkDescription.replace('%data%', work.jobs[i].description));
+	    $('#workExperience').append(HTMLworkStart);
+	    $('.work-entry').eq(i).append(HTMLworkEmployer.replace('%data%', work.jobs[i].employer) + HTMLworkTitle.replace('%data%', work.jobs[i].title));
+	    $('.work-entry').eq(i).append(HTMLworkDates.replace('%data%', work.jobs[i].dates));
+	    $('.work-entry').eq(i).append(HTMLworkLocation.replace('%data%', work.jobs[i].location));
+	    $('.work-entry').eq(i).append(HTMLworkDescription.replace('%data%', work.jobs[i].description));
 	}
     }
 };
@@ -114,15 +115,15 @@ var projects = { projects :[{ title: 'An LL parser which will take the grammer a
 			      images: []
 			    }],
 		 display: function () {
-		     $('#projects').append(HTMLprojectStart);
 		     //projects.projects is an array of objects
 		     //hence we need to enumerate all the objects at each index
 		     for (var i in projects.projects) {
-			 $('#projects').append(HTMLprojectTitle.replace('%data%', projects.projects[i].title));
-			 $('#projects').append(HTMLprojectDates.replace('%data%', projects.projects[i].dates));
-			 $('#projects').append(HTMLprojectDescription.replace('%data%', projects.projects[i].description));
+			 $('#projects').append(HTMLprojectStart);
+			 $('.project-entry').eq(i).append(HTMLprojectTitle.replace('%data%', projects.projects[i].title));
+			 $('.project-entry').eq(i).append(HTMLprojectDates.replace('%data%', projects.projects[i].dates));
+			 $('.project-entry').eq(i).append(HTMLprojectDescription.replace('%data%', projects.projects[i].description));
 			 for (var image in projects.projects[i].images)
-			     $('#projects').append(HTMLprojectImage.replace('%data%', projects.projects[i].images[image]));
+			     $('.project-entry').eq(i).append(HTMLprojectImage.replace('%data%', projects.projects[i].images[image]));
 		     }
 		
 		 }
