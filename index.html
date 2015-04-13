@@ -47,8 +47,8 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   Google Map to your resume!
   -->
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> 
-  
-  <script src="bower_components/platform/platform.js"></script>
+
+  <!-- Including polymer support and HTML imports -->
   <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
   <link rel="import"  href="my-contacts.html">
   <link rel="import" href="bower_components/font-roboto/roboto.html">
@@ -71,12 +71,8 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     display by looking at the id or at what's written between the <h2> tags.
     -->
     <div id="header" class="center-content clearfix">
-      <core-header-panel>
-	<core-toolbar>
 	  <paper-tabs id="topContacts" selected="all" self-end>	    
 	  </paper-tabs>
-	</core-toolbar>
-      </core-header-panel>
     </div>
     
     <div style='clear: both;'></div>
@@ -94,15 +90,8 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     </div>
     <div id="letsConnect" class='dark-gray'>
       <h2 class='orange center-text'>Let's Connect</h2>
-      
-      <core-header-panel>
-	<core-toolbar>
 	  <paper-tabs id="footerContacts" selected="all" self-end>
 	  </paper-tabs>
-	</core-toolbar>
-      </core-header-panel>
-
-
     </div>
   </div>
 
