@@ -1,4 +1,5 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
+
 <polymer-element name="my-contacts" noscript>
   <template>
     <p>Hello World</p>
@@ -15,17 +16,17 @@
        color: #FFFFFF;
      }
     </style>
-      <template repeat="{{item in skills}}">
-        <li><span class="white-text">{{item}}</span></li>
+    <template repeat="{{item in skills}}">
+      <li><span class="white-text">{{item}}</span></li>
       </template>
   </template>
   <script>
-    Polymer('skills-tag', {
-      ready: function() {
-        // populate the element’s data model
-        // (the salutations array)
-        this.skills = bio.skills;
-      }
-    });
+   Polymer('skills-tag', {
+     ready: function() {
+       // populate the element’s data model
+       // (the bio.skills array)
+       this.skills = bio.skills;
+     }
+   });
   </script>
 </polymer-element>

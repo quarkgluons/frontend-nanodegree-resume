@@ -10,25 +10,18 @@ var bio = {
     },
     welcomeMessage: 'You are most welcome to go through my resume',
     skills: ['Programmer', 'Footballer', 'What not!'],
-    biopic: '#',
+    biopic: 'images/my.jpg',
     display: function () {
 	$('#header').prepend(HTMLheaderName.replace('%data%', bio.name) + HTMLheaderRole.replace('%data%', bio.role));
 	$('#header').append(HTMLbioPic.replace('%data%', bio.biopic));
 	$('#header').append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
 	$('#header').append(HTMLskillsStart);
-	// for (var i in bio.skills) 
-	//     $('#skills').append(HTMLskills.replace('%data%', bio.skills[i]));
 	$('#skills').append(polymerSkills);
+	//using polymer my-contacts in place of HTMLcontacts
 	for (var e in bio.contacts) {
 	    $('#topContacts').append(PolymerContact.replace('%contact%', e).replace('%contact%', e).replace('%data%', bio.contacts[e]));
 	    $('#footerContacts').append(PolymerContact.replace('%contact%', e).replace('%contact%', e).replace('%data%', bio.contacts[e]));
-	}
-    // 	for (var e in bio.contacts) {
-    // 	     $('#topContacts').append(PolymerContact.replace('%contact%', e).replace('%data%', bio.contacts[e]));
-    // 	 }
-	
-    // }
-    
+	}    
     }
 }
 var education = {
@@ -137,7 +130,7 @@ function display() {
     work.display();
     projects.display();
     education.display();
-//    $('#mapDiv').append(googleMap);
+    $('#mapDiv').append(googleMap);
 }
 
 display();

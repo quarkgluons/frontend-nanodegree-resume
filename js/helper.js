@@ -22,7 +22,7 @@ var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 
 var HTMLskillsStart = '<h3 id="skillsH3">Skills at a Glance:</h3><ul id="skills"></ul>';
-//Removed the HTMLskills and added Polymer custom skills-tag
+//Removed the HTMLskills and added Polymer custom skills-tag imported from the my-contacts.html
 var polymerSkills = '<skills-tag></skills-tag>';
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
@@ -230,9 +230,9 @@ Uncomment the code below when you're ready to implement a Google Map!
 //Calls the initializeMap() function when the page loads
 // window.addEventListener('load', initializeMap);
 
-// //Vanilla JS way to listen for resizing of the window
-// //and adjust map bounds
-// window.addEventListener('resize', function(e) {
-//     //Make sure the map bounds get updated on page resize
-//     map.fitBounds(mapBounds);
-// });
+//Vanilla JS way to listen for resizing of the window
+//and adjust map bounds
+window.addEventListener('resize', function(e) {
+    //Make sure the map bounds get updated on page resize
+    map.fitBounds(mapBounds);
+});
