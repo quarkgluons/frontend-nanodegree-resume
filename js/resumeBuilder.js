@@ -1,6 +1,6 @@
 var bio = {
     name: 'Showkat Ali',
-    role: 'Wannabe All Rounder',
+    role: 'Udacious!&lt;sic&gt;',
     contacts: {
 	mobile: '+91xxxxxxxxxx',
 	email: 'quarkgluons@gmail.com',
@@ -10,24 +10,27 @@ var bio = {
     },
     welcomeMessage: 'You are most welcome to go through my resume',
     skills: ['Programmer', 'Footballer', 'What not!'],
-    biopic: '',
+    biopic: '#',
     display: function () {
 	$('#header').prepend(HTMLheaderName.replace('%data%', bio.name) + HTMLheaderRole.replace('%data%', bio.role));
-	$('#header').append(HTMLbioPic.replace('%data', bio.biopic));
+	$('#header').append(HTMLbioPic.replace('%data%', bio.biopic));
 	$('#header').append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
 	$('#header').append(HTMLskillsStart);
 	for (var i in bio.skills) 
-	    $('#header').append(HTMLskills.replace('%data%', bio.skills[i]));
+	    $('#skills').append(HTMLskills.replace('%data%', bio.skills[i]));
 
 	for (var e in bio.contacts) {
-	    $('#topContacts').append(HTMLcontactGeneric.replace('%contact%', e).replace('%data%', bio.contacts[e]));
-	    $('#footerContacts').append(HTMLcontactGeneric.replace('%contact%', e).replace('%data%', bio.contacts[e]));
+	    $('#topContacts').append(PolymerContact.replace('%contact%', e).replace('%contact%', e).replace('%data%', bio.contacts[e]));
+	    $('#footerContacts').append(PolymerContact.replace('%contact%', e).replace('%contact%', e).replace('%data%', bio.contacts[e]));
 	}
+    // 	for (var e in bio.contacts) {
+    // 	     $('#topContacts').append(PolymerContact.replace('%contact%', e).replace('%data%', bio.contacts[e]));
+    // 	 }
 	
-    }
+    // }
     
-};
-
+    }
+}
 var education = {
     schools: [{ name: 'SVPS',
 		location: 'Kargil',
@@ -55,13 +58,12 @@ var education = {
 		      date: 2013,
 		      url: 'http://www.codeacademy.org'
 		    },
-		    { title: '',
-		      school: '',
-		      date: 2010,
-		      url: ''
+		    { title: 'Basic HTML and CSS',
+		      school: 'Udacity',
+		      date: 2015,
+		      url: 'https://www.udacity.com'
 		    }],
     display: function () {
-	
 	for (var school in education.schools) {
 	    $('#education').append(HTMLschoolStart);
 	    $('.education-entry').eq(school).append(HTMLschoolName.replace('%data%', education.schools[school].name + HTMLschoolDegree.replace('%data%', education.schools[school].degree)));
@@ -71,11 +73,11 @@ var education = {
 		$('.education-entry').eq(school).append(HTMLschoolMajor.replace('%data%', education.schools[school].majors[major]));
 	    }
 	}
-	$('#education').append(HTMLonlineClasses);
+	$('.education-entry:last').append(HTMLonlineClasses);
 	for (var i in education.onlineCourses) {
-	    $('#education').eq(i).append(HTMLonlineTitle.replace('%data%', education.onlineCourses[i].title + HTMLonlineSchool.replace('%data%', education.onlineCourses[i].school)));
-	    $('#education').append(HTMLonlineDates.replace('%data%', education.onlineCourses[i].date));
-	    $('#education').append(HTMLonlineURL.replace('%data%', education.onlineCourses[i].url));
+	    $('.education-entry:last').append(HTMLonlineTitle.replace('%data%', education.onlineCourses[i].title + HTMLonlineSchool.replace('%data%', education.onlineCourses[i].school)));
+	    $('.education-entry:last').append(HTMLonlineDates.replace('%data%', education.onlineCourses[i].date));
+	    $('.education-entry:last').append(HTMLonlineURL.replace('%data%', education.onlineCourses[i].url));
 	}
     }
 };
