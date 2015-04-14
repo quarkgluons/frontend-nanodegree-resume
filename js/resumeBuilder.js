@@ -1,16 +1,16 @@
 var bio = {
-    name: 'Showkat Ali',
-    role: 'Udacious!&lt;sic&gt;',
+    name: "Showkat Ali",
+    role: "Udacious!&lt;sic&gt;",
     contacts: {
-	mobile: '+91xxxxxxxxxx',
-	email: 'quarkgluons@gmail.com',
-	github: 'https://ww.github.com/quarkgluons',
-	twitter: '@ali_showkat',
-	location: 'Kargil'
+	mobile: "+91xxxxxxxxxx",
+	email: "quarkgluons@gmail.com",
+	github: "https://www.github.com/quarkgluons",
+	twitter: "@ali_showkat",
+	location: "Kargil"
     },
-    welcomeMessage: 'You are most welcome to go through my resume',
-    skills: ['Programmer', 'Footballer', 'What not!'],
-    biopic: 'images/my.jpg',
+    welcomeMessage: "You are most welcome to go through my resume",
+    skills: ["Programmer", "Footballer", "What not!"],
+    biopic: "images/my.jpg",
     display: function () {
 	$('#header').prepend(HTMLheaderName.replace('%data%', bio.name) + HTMLheaderRole.replace('%data%', bio.role));
 	$('#header').append(HTMLbioPic.replace('%data%', bio.biopic));
@@ -26,36 +26,39 @@ var bio = {
     }
 }
 var education = {
-    schools: [{ name: 'SVPS',
-		location: 'Kargil',
-		degree: 'Primary Scooling',
-		majors: ['Trolling'],
-		dates: 1999,
-		url: ''
+    schools: [{
+	name: "SVPS",
+	location: "Kargil",
+	degree: "Primary Scooling",
+	majors: ["Trolling"],
+	dates: 1999,
+	url: ""
+    },
+	      {
+		  name: "St. Thomas College",
+		  location: "Dehradun",
+		  degree: "High School",
+		  majors: ["Cricket", "Running", "Free-Style Party Dancing"],
+		  dates: 2007,
+		  url: "" 
 	      },
-	      { name: 'St. Thomas College',
-		location: 'Dehradun',
-		degree: 'High Scool',
-		majors: ['Cricket', 'Running', 'Free-Style Party Dancing'],
-		dates: 2007,
-		url: '' 
-	      },
-	      { name: 'Jamia Millia Islamia',
-		location: 'New Delhi',
-		degree: 'Graduation',
-		majors: ['Computer Science', 'Football', 'College Fests'],
+	      { name: "Jamia Millia Islamia",
+		location: "New Delhi",
+		degree: "Graduation",
+		majors: ["Computer Science", "Football", "College Fests"],
 		dates: 2012,
-		url: '' 
+		url: ""
 	      }],
-    onlineCourses: [{ title: 'JavaScript',
-		      school: 'code academy',
-		      date: 2013,
-		      url: 'http://www.codeacademy.org'
-		    },
-		    { title: 'Basic HTML and CSS',
-		      school: 'Udacity',
+    onlineCourses: [{
+	title: "JavaScript",
+	school: "code academy",
+	date: 2013,
+	url: "http://www.codeacademy.org"
+    },
+		    { title: "Basic HTML and CSS",
+		      school: "Udacity",
 		      date: 2015,
-		      url: 'https://www.udacity.com'
+		      url: "https://www.udacity.com"
 		    }],
     display: function () {
 	for (var school in education.schools) {
@@ -78,11 +81,11 @@ var education = {
 
 var work = {
     jobs:[{
-	employer: 'Hindustan Aeronautics Limited',
-	title: 'Engineer CS',
-	location: 'Bangalore, Karnataka, India',
-	dates: '2013-current',
-	description: 'Maintain the IT department in HAL Medical & Health Unit and also develop required applications.'
+	employer: "Hindustan Aeronautics Limited",
+	title: "Engineer CS",
+	location: "Bangalore, Karnataka, India",
+	dates: "2013-current",
+	description: "Maintain the IT department in HAL Medical & Health Unit and also develop required applications."
     }],
     display: function () {
 	for (var i in work.jobs) {
@@ -95,19 +98,20 @@ var work = {
     }
 };
 
-var projects = { projects :[{ title: 'An LL parser which will take the grammer and a string and tell whether that string is parsable with the given grammer.',
-			      dates: '2012',
-			      description: 'As part of the Compiler Design Course',
+var projects = { projects :[{
+    title: "An LL parser which will take the grammer and a string and tell whether that string is parsable with the given grammer.",
+    dates: "2012",
+    description: "As part of the Compiler Design Course",
+    images: []
+},
+			    { title: "Second",
+			      dates: "",
+			      description: "",
 			      images: []
 			    },
-			    { title: 'Second',
-			      dates: '',
-			      description: '',
-			      images: []
-			    },
-			    { title: 'Third',
-			      dates: '',
-			      description: '',
+			    { title: "Third",
+			      dates: "",
+			      description: "",
 			      images: []
 			    }],
 		 display: function () {
