@@ -1,3 +1,4 @@
+!/bower_components/paper-tabs/*
 /bower_components
 /bower_components/*
 /node_modules
