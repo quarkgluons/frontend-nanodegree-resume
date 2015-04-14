@@ -1,6 +1,7 @@
-!/bower_components/paper-tabs/*
 /bower_components
 /bower_components/*
+!/bower_components/paper-tabs
+!/bower_components/paper-tabs/*
 /node_modules
 /node_modules/*
 /*~
