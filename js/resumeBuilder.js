@@ -10,19 +10,31 @@ var bio = {
     },
     welcomeMessage: "You are most welcome to go through my resume",
     skills: ["Programmer", "Footballer", "What not!"],
-    biopic: "images/my.jpg",
+    biopic: "images/my.svg",
     display: function () {
 	$('#header').prepend(HTMLheaderName.replace('%data%', bio.name) + HTMLheaderRole.replace('%data%', bio.role));
 	$('#header').append(HTMLbioPic.replace('%data%', bio.biopic));
 	$('#header').append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
 	//using polymer my-contacts in place of HTMLcontacts
 	for (var e in bio.contacts) {
-	    $('#topContacts').append(PolymerContact.replace('%contact%', e).replace('%contact%', e).replace('%data%', bio.contacts[e]));
+	    $('#topContacts').append(PolymerContact.replace('%contact%', e));
 	    $('#footerContacts').append(PolymerContact.replace('%contact%', e).replace('%contact%', e).replace('%data%', bio.contacts[e]));
 	}
+	
 	$('#header').append(HTMLskillsStart);
 	$('#skills').append(polymerSkills);
-
+	$('paper-tabs /deep/ paper-tab').mouseenter(function() {
+	    this.textContent = bio.contacts[this.textContent];
+	    //will animate it sometime
+	    //	    this.animate({
+	    //	    });
+	}).mouseleave(function() {
+	    for (var e in bio.contacts) {
+		if (bio.contacts[e] === this.textContent)
+		    this.textContent = e;
+	    }
+	    
+	});
     }
 }
 var education = {
@@ -34,13 +46,12 @@ var education = {
 	dates: 1999,
 	url: ""
     },
-	      {
-		  name: "St. Thomas College",
-		  location: "Dehradun",
-		  degree: "High School",
-		  majors: ["Cricket", "Running", "Free-Style Party Dancing"],
-		  dates: 2007,
-		  url: "" 
+	      { name: "St. Thomas College",
+		location: "Dehradun",
+		degree: "High School",
+		majors: ["Cricket", "Running", "Free-Style Party Dancing"],
+		dates: 2007,
+		url: "" 
 	      },
 	      { name: "Jamia Millia Islamia",
 		location: "New Delhi",
@@ -125,7 +136,7 @@ var projects = { projects :[{
 			 for (var image in projects.projects[i].images)
 			     $('.project-entry').eq(i).append(HTMLprojectImage.replace('%data%', projects.projects[i].images[image]));
 		     }
-		
+		     
 		 }
 	       };
 

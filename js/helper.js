@@ -16,7 +16,7 @@ var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr/>';
 //Using polymer <paper-tab> custom element instead of li elements
 //Same element is being used for the header as well as footer links
-var PolymerContact = '<paper-tab name="%contact%">%contact%: %data%</paper-tab>'
+var PolymerContact = '<paper-tab>%contact%</paper-tab>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';

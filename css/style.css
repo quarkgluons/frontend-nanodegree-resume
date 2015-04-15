@@ -12,8 +12,8 @@ paper-tabs {
   background-color: rgba(15, 206, 255, 0.66);
 }
 
-.tab-content {
-  margin: 0 auto;  
+paper-tabs /deep/ paper-tab:hover{
+  background-color: white;
 }
 
 .clearfix {
@@ -128,7 +128,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-image: linear-gradient(to top right,#22dd66 30%,white,green);
 }
 
 .flex-box {

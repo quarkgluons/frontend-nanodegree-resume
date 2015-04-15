@@ -36,9 +36,7 @@ To change the ink color:
 
 <polymer-element name="paper-tab" attributes="noink" role="tab" inline flex center-center horizontal layout>
 <template>
-
   <link rel="stylesheet" href="paper-tab.css">
-  
   <div class="tab-content" flex auto center-center horizontal layout><content></content></div>
   <paper-ripple id="ink" initialOpacity="0.95" opacityDecayVelocity="0.98"></paper-ripple>
   
@@ -75,7 +73,6 @@ To change the ink color:
     cancelRipple: function() {
       this.$.ink.upAction();
     }
-    
   });
   
 </script>
